@@ -21,23 +21,11 @@ class CompanyRow extends Component {
         this.setState({
             invested: this.parse(e.currentTarget.value)
         })
-        this.props.updateInvestors(this.props.index,
-            {
-                invested: parseInt(this.state.invested),
-                shares: parseInt(this.state.shares),
-                type: this.props.founders ? 'common' : 'preferred',
-            })
     }
     sharesHandler = (e) => {
         this.setState({
             shares: this.parse(e.currentTarget.value)
         })
-        this.props.updateInvestors(this.props.index,
-            {
-                invested: parseInt(this.state.invested),
-                shares: parseInt(this.state.shares),
-                type: this.props.founders ? 'common' : 'preferred',
-            })
     }
     submitHandler = (e) => {
         e.preventDefault()
@@ -59,6 +47,16 @@ class CompanyRow extends Component {
                 </div>
             </div>
         );
+    }
+    componentDidUpdate = (_, prevState) => {
+        if (this.state === prevState) { return null } else {
+            this.props.updateInvestors(this.props.index,
+                {
+                    invested: parseInt(this.state.invested),
+                    shares: parseInt(this.state.shares),
+                    type: this.props.founders ? 'common' : 'preferred',
+                })
+        }
     }
 }
 
