@@ -1,0 +1,22 @@
+.AddInvestor {
+    margin-left: 10vw;
+    height: 4vh;
+    padding: .5vh;
+}
+
+.Calculate {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(11,163,105,0.7) 0%,rgba(12,210,121,0.7) 22%,rgba(15,219,195,0.7) 82%,rgba(15,219,195,0.7) 96%,rgba(15,219,195,0.7) 96%); 
+    margin: 1vh 40vw;
+    width: 25vh;
+    border-radius: 5px;
+}
+
+.Calculate :first-child {
+    height: 100%;
+}
+
+.Calculate * > {
+    border-radius: none;
+}

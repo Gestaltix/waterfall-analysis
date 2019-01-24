@@ -1,0 +1,30 @@
+body {
+margin: 0;
+}
+h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.TopHalf {
+    height: 50vh;
+    width: 100vw;
+    background-image: url('../../assets/images/waterfall.jpg');
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.TopHalfDiv {
+    width: 50vw;
+    background: linear-gradient(135deg, rgba(11,163,105,0.7) 0%,rgba(12,210,121,0.7) 22%,rgba(15,219,195,0.7) 82%,rgba(15,219,195,0.7) 96%,rgba(15,219,195,0.7) 96%); 
+    border-radius: 20px;
+}
+
+.TopHalfH1 {
+    color: aliceblue;
+    font-size: 10vh;
+    text-align: center;
+    border-width: 0px;
+}
