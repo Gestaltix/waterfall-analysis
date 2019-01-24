@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './index.css'
 
+const f = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 2
+})
+
 class CompanyRow extends Component {
     constructor(props) {
         super(props)
@@ -51,7 +55,7 @@ class CompanyRow extends Component {
                 </form>
                 <div className='CompanyRowResult'>
                     <p>Earned($):</p>
-                    <div className='CompanyRowResultDiv'>{this.props.result ? this.props.result : null}</div>
+                    <div className='CompanyRowResultDiv'>{this.props.result ? f.format(this.props.result) : null}</div>
                 </div>
             </div>
         );
