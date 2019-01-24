@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Waterfall Analysis calculates how much money investors would gain if the company sold for a given amount, at given investment levels. All investors are assumed to have preferred (x2) investment options other than the founders. Simply fill in the values and press the 'Calculate' Button. Make sure that you fill ALL THE VALUES, or the function will not run, and a user friendly error message will appear. You will notice that the textboxes do not accept anything but numbers, giving the user an easier time if they have a typo. Also, I added a waterfall for effect.
+
 ## Available Scripts
 
 In the project directory, you can run:

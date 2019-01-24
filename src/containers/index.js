@@ -8,6 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      wrong: false,
+      wrongEven: false,
       investors: [{}, {}],
       exitValue: null,
       results: [],
@@ -36,9 +38,15 @@ class App extends Component {
     }
     if (formsFilled && this.state.exitValue) {
       this.setState({
+        wrong: false,
         results: funct(this.state.exitValue, this.state.investors.reverse()).reverse()
       })
-    } else { console.log('could not run function') }
+    } else {
+      this.setState({
+        wrong: true,
+        wrongEven: !this.state.wrongEven,
+      })
+    }
   }
   parse = (item) => {
     let newItem = item
@@ -54,14 +62,18 @@ class App extends Component {
     return (
       <div>
         <TopHalf />
-        <CompanyRow index={0} founders result={this.state.results ? this.state.results[0] : null} updateInvestors={this.updateInvestors} />
+        <CompanyRow index={0} key={0} founders result={this.state.results ? this.state.results[0] : null} updateInvestors={this.updateInvestors} />
         {this.state.investors.map((investor, index) => {
           return index === 0 ? null : <CompanyRow
+            key={index}
             index={index}
             updateInvestors={this.updateInvestors}
             result={this.state.results ? this.state.results[index] : null} />
         })}
         <button className='AddInvestor' onClick={this.makeNewRow}>Add an investor</button>
+        {this.state.wrong ? <div className='ErrorText'>
+          <p className={this.state.wrongEven ? 'Red' : 'Orange'}>You need to fill ALL values before calculating.</p>
+        </div> : null}
         <div className='Calculate'>
           <input type='text' placeholder='Exit Price' onChange={this.setExitValue} />
           <button onClick={this.calculate}>Calculate</button>

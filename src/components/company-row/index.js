@@ -46,8 +46,8 @@ class CompanyRow extends Component {
                 <form className='CompanyRowForm' onSubmit={this.submitHandler}>
                     {this.props.founders ? <div className='CompanyRowFounders'>Founders</div>
                         : <div className='CompanyRowFounders'>Series {abc[this.props.index - 1]}</div>}
-                    <input type='text' placeholder='Money Invested ($)' onChange={this.investedHandler} value={this.state.invested} />
                     <input type='text' placeholder='Shares Owned' onChange={this.sharesHandler} value={this.state.shares} />
+                    <input type='text' placeholder='Money Invested ($)' onChange={this.investedHandler} value={this.state.invested} />
                 </form>
                 <div className='CompanyRowResult'>
                     <p>Earned($):</p>
